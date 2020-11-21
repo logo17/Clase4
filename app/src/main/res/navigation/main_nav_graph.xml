@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.loguito.myapplication.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <!--    TODO agregamos las animaciones para las transiciones    -->
+        <action
+            android:id="@+id/action_loginFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_nav1Fragment"
+            app:destination="@id/nav1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.loguito.myapplication.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_nav1Fragment"
+            app:destination="@id/nav1Fragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_nav2Fragment"
+            app:destination="@id/nav2Fragment" />
+        <argument
+            android:name="user"
+            app:argType="com.loguito.myapplication.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav1Fragment"
+        android:name="com.loguito.myapplication.fragments.Nav1Fragment"
+        android:label="fragment_nav1"
+        tools:layout="@layout/fragment_nav1" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav2Fragment"
+        android:name="com.loguito.myapplication.fragments.Nav2Fragment"
+        android:label="fragment_nav2"
+        tools:layout="@layout/fragment_nav2" />
+</navigation>
+    <!-- TODO Paso 4 Crear archivo de navegacion -->
